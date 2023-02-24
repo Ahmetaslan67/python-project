@@ -16,13 +16,14 @@ for i in products:
     if products.count(i)==1: print(i)
 
 # Second method:
-
+i=0
 for a in products:
     products.remove(a)
     if not a in products: print(a)
-    products.append(a)
+    products.insert(i, a)
+    i+=1
 
-# Third method:
+# # Third method:
 
 dict={}
 for i in range(len(products)):
@@ -32,3 +33,15 @@ for i in range(len(products)):
 
 for i in range(len(dict)):
     if list(dict.values())[i]==1: print(list(dict.keys())[i])
+
+## Fourth method:
+
+for product_1 in products:
+  count = 0
+  for product_2 in products:
+    if product_1 == product_2:
+      count += 1
+      if count > 1:
+        break
+  if count == 1:
+    print(product_1)
